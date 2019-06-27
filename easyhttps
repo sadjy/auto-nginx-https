@@ -142,8 +142,6 @@ ubuntu_install_nginx() {
     STEP=inginx
     [ `dpkg -l | grep '\snginx\s\s' | wc -l` -eq 1 ] && return
 
-    add-apt-repository "deb http://nginx.org/packages/ubuntu/ $(lsb_release -s -c) main" -y || die addrepo
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ABF5BD827BD9BF62
     apt-get update || die aptupdate
     apt-get install nginx -y || die install
 
